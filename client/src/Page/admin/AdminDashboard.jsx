@@ -1,9 +1,10 @@
- // ✅ using AuthContext, not Redux
-import { toast } from "react-toastify";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
+  // updateUserStart,
+  // updateUserSuccess,
+  // updateUserFailure,
   logOutStart,
   logOutSuccess,
   logOutFailure,
@@ -11,21 +12,34 @@ import {
   deleteUserAccountSuccess,
   deleteUserAccountFailure,
 } from "../../redux/user/userSlice";
-import AllBookings from "../admin/AllBookings";
-import AdminUpdateProfile from "../admin/AdminUpdateProfile";
-import AddPackages from "../admin/AddPackages";
-import AllPackages from "../admin/AddPackages";
-import AllUsers from "../admin/AllUsers";
-import Payments from "../admin/Payment"
-import RatingsReviews from "../admin/RatingsReviews";
-import History from "../admin/History";
+//import
+// {
+//   getDownloadURL,
+//   getStorage,
+//   ref,
+//   uploadBytesResumable
+//  } from "firebase/storage";
+
+// import  { app } from "../../firebase";
+import AllBookings from "./AllBookings";
+import AdminUpdateProfile from "./AdminUpdateProfile";
+import AddPackages from "./AddPackages";
+import "./styles/DashBoardStyle.css";
+import AllPackages from "./AllPackages";
+import AllUsers from "./AllUsers";
+import Payment from "./Payment";
+import RatingsReviews from "./RatingsReviews";
+import History from "./History";
+import { toast } from "react-toastify";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const fileRef = useRef(null);
+const { currentUser, loading } = useSelector((state) => state.user);
 
-  const { currentUser, } = useSelector((state) => state.user);
- 
+  //const [profilePhoto, setProfilePhoto] = useState(undefined);
+  //const [photoPercentage, setPhotoPercentage] = useState();
   const [activePanelId, setActivePanelId] = useState(1);
   const [formData, setFormData] = useState({
     username: "",
@@ -39,10 +53,10 @@ const AdminDashboard = () => {
     if (currentUser !== null) {
       setFormData({
         username: currentUser.username,
-        email:    currentUser.email,
-        address:  currentUser.address,
-        phone:    currentUser.phone,
-        avatar:   currentUser.avatar,
+        email: currentUser.email,
+        address: currentUser.address,
+        phone: currentUser.phone,
+        avatar: currentUser.avatar,
       });
     }
   }, [currentUser]);
@@ -66,8 +80,8 @@ const AdminDashboard = () => {
 
   const handleDeleteAccount = async (e) => {
     e.preventDefault();
-    const CONFIRM = confirm(
-      "Are you sure ? the account will be permenantly deleted!"
+    const CONFIRM = window.confirm(
+      "Are you sure? the account will be permenantly deleted!"
     );
     if (CONFIRM) {
       try {
@@ -96,9 +110,11 @@ const AdminDashboard = () => {
               <div className="w-full flex flex-col items-center relative">
                 <img
                   src={
-                    
-                    formData.avatar
-                  }
+              formData.avatar?.startsWith("http")
+              ? formData.avatar
+                  : `http://localhost:5000/images/${formData.avatar}`
+                     }
+
                   alt="Profile photo"
                   className="w-36 h-36 object-cover rounded-full"
                 />
@@ -241,17 +257,17 @@ const AdminDashboard = () => {
                   >
                     History
                   </button>
-                  {/* <button
+                  <button
                     className={
-                      activePanelId === 7
+                      activePanelId === 8
                         ? "p-1 rounded-t transition-all duration-300 text-nowrap bg-blue-500 text-white"
                         : "p-1 rounded-t transition-all duration-300 text-nowrap"
                     }
                     id="updateProfile"
-                    onClick={() => setActivePanelId(7)}
+                    onClick={() => setActivePanelId(8)}
                   >
-                    Update Profile
-                  </button> */}
+                    {loading ? "Loading..." : "Update profile"}
+                  </button>
                 </div>
               </nav>
               <div className="content-div flex flex-wrap my-5">
@@ -264,7 +280,7 @@ const AdminDashboard = () => {
                 ) : activePanelId === 4 ? (
                   <AllUsers />
                 ) : activePanelId === 5 ? (
-                  <Payments />
+                  <Payment />
                 ) : activePanelId === 6 ? (
                   <RatingsReviews />
                 ) : activePanelId === 7 ? (

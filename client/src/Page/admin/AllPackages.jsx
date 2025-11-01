@@ -56,7 +56,7 @@ const AllPackages = () => {
     if (data?.packages?.length < 9) {
       setShowMoreBtn(false);
     }
-    setPackages([...packages, ...data.packages]);
+    setPackages([...packages, ...(data?.packages || [])]);
   };
 
   useEffect(() => {
@@ -155,7 +155,7 @@ const AllPackages = () => {
               >
                 <Link to={`/package/${pack._id}`}>
                   <img
-                    src={`http://localhost:8000/images/${pack.packageImages[0]}`}
+                    src={`http://localhost:5000/images/${pack.packageImages[0]}`}
                     alt="image"
                     className="w-20 h-20 rounded"
                   />

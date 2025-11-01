@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateUserStart,
@@ -11,18 +11,15 @@ import {
 import { toast } from "react-toastify";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
-import {useNavigate}  from "react-router-dom";
-
 
 const AdminUpdateProfile = () => {
-
-  const navigate = useNavigate();
-  const { currentUser, loading, } = useSelector((state) => state.user);
+  const { currentUser, loading,} = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [updateProfileDetailsPanel, setUpdateProfileDetailsPanel] =
     useState(true);
   const [formData, setFormData] = useState({
     username: "",
+    email: "",
     address: "",
     phone: "",
   });
@@ -49,6 +46,7 @@ const AdminUpdateProfile = () => {
     if (currentUser !== null) {
       setFormData({
         username: currentUser.username,
+        email: currentUser.email,
         address: currentUser.address,
         phone: currentUser.phone,
         avatar: currentUser.avatar,
@@ -76,6 +74,7 @@ const AdminUpdateProfile = () => {
     if (
       !avatarFile &&
       currentUser.username === formData.username &&
+      currentUser.email === formData.email &&
       currentUser.address === formData.address &&
       currentUser.phone === formData.phone
     ) {
@@ -88,6 +87,7 @@ const AdminUpdateProfile = () => {
 
       const updatedForm = new FormData();
       updatedForm.append("username", formData.username);
+      updatedForm.append("email", formData.email);
       updatedForm.append("address", formData.address);
       updatedForm.append("phone", formData.phone);
       if (avatarFile) {
@@ -141,11 +141,10 @@ const AdminUpdateProfile = () => {
         dispatch(updateUserSuccess());
         dispatch(updatePassFailure(data?.message));
         toast.error("Session Ended! Please login again");
-        navigate("/login")
         return;
       }
       dispatch(updatePassSuccess());
-      toast(data?.message);
+      toast.success(data?.message);
       setUpdatePassword({
         oldpassword: "",
         newpassword: "",
@@ -157,12 +156,12 @@ const AdminUpdateProfile = () => {
   };
 
   return (
-    <div className="w-full h-[90vh] flex items-center  bg-[#EB662B] rounded-md">
-      <div className="w-[90%] bg-white md:w-[60%] mx-auto flex flex-col gap-6 rounded-md shadow-lg">
+    <div className="w-full min-h-screen flex  justify-center bg-[#6358DC]">
+      <div className="mt-12 w-[90%] bg-white md:w-[60%] h-[740px] mx-auto flex flex-col gap-6 rounded-md shadow-lg">
         <h1 className="text-center text-lg mt-6 font-medium md:text-3xl md:font-bold text-gray-800">
           {updateProfileDetailsPanel ? (
             <>
-              Update <span className="text-[#EB662B]">Profile</span>
+              Update <span className="text-[#6358DC]">Profile</span>
             </>
           ) : (
             <>
@@ -209,6 +208,17 @@ const AdminUpdateProfile = () => {
                 />
               </div>
               <div>
+                <label className="font-medium">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full mt-2 p-3 border rounded-md bg-gray-200 outline-none"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div>
                 <label className="font-medium">Address</label>
                 <textarea
                   name="address"
@@ -234,7 +244,7 @@ const AdminUpdateProfile = () => {
                 disabled={loading}
                 onClick={updateUserDetails}
                 type="button"
-                className="w-full bg-[#EB662B] text-white p-3 rounded-md hover:opacity-90"
+                className="w-full bg-[#6358DC] text-white p-3 rounded-md hover:opacity-90"
               >
                 {loading ? "Loading..." : "Update"}
               </button>

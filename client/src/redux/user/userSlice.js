@@ -35,7 +35,7 @@ const userSlice = createSlice({
       state.loading = false;
     },
     updatePassStart: (state) => {
-      state.loading = true;
+      state.loading = false;
     },
     updatePassSuccess: (state) => {
       state.loading = false;
