@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   // updateUserStart,
   // updateUserSuccess,
@@ -12,15 +12,17 @@ import {
   deleteUserAccountSuccess,
   deleteUserAccountFailure,
 } from "../../redux/user/userSlice";
-//import
-// {
+
+//   import
+//   {
 //   getDownloadURL,
 //   getStorage,
 //   ref,
 //   uploadBytesResumable
-//  } from "firebase/storage";
+//   } from "firebase/storage";
 
-// import  { app } from "../../firebase";
+//   import  { app } from "../../firebase";
+
 import AllBookings from "./AllBookings";
 import AdminUpdateProfile from "./AdminUpdateProfile";
 import AddPackages from "./AddPackages";
@@ -37,9 +39,9 @@ const AdminDashboard = () => {
   const dispatch = useDispatch();
   // const fileRef = useRef(null);
 const { currentUser, loading } = useSelector((state) => state.user);
-
   //const [profilePhoto, setProfilePhoto] = useState(undefined);
   //const [photoPercentage, setPhotoPercentage] = useState();
+
   const [activePanelId, setActivePanelId] = useState(1);
   const [formData, setFormData] = useState({
     username: "",
