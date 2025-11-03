@@ -1,13 +1,9 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-
 
 const AddPackages = () => {
-  const navigate = useNavigate();
-  const params = useParams();
-
   const [formData, setFormData] = useState({
     packageName: "",
     packageDescription: "",
@@ -24,9 +20,11 @@ const AddPackages = () => {
     packageImages: [],
   });
 
-  
+ const [isUploading, setIsUploading] = useState(false);
+  const params = useParams();
+  const [Formerror, setFormError] = useState(false);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [ setError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -52,14 +50,14 @@ const AddPackages = () => {
     }
 
     if (
-      formData.packageName === "" ||
-      formData.packageDescription === "" ||
-      formData.packageDestination === "" ||
-      formData.packageAccommodation === "" ||
-      formData.packageTransportation === "" ||
-      formData.packageMeals === "" ||
-      formData.packageActivities === "" ||
-      formData.packagePrice === 0
+       formData.packageName === "" ||
+       formData.packageDescription === "" ||
+       formData.packageDestination === "" ||
+       formData.packageAccommodation === "" ||
+       formData.packageTransportation === "" ||
+       formData.packageMeals === "" ||
+       formData.packageActivities === "" ||
+       formData.packagePrice === 0
     ) {
       toast.error("All fields are required!");
       return;
@@ -99,9 +97,11 @@ const AddPackages = () => {
     }
 
     try {
+      setIsUploading(true);
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:5000/api/package/update-package/${params?.id}`, // Update API endpoint
+       // `http://localhost:5000/api/package/update-package/${params?.id}`, // Update API endpoint
+       "http://localhost:5000/api/package/create-package",
         data,
         {
           headers: {
@@ -110,25 +110,27 @@ const AddPackages = () => {
           withCredentials: true, // If you're using cookies or sessions for authentication
         }
       );
-
-      console.log(res, "res");
+         
+          //console.log(res, "res");
+           setIsUploading(false);
+           setLoading(false);
 
       if (!res.data.success) {
-        setError(res.data.message);
+        setFormError(res.data.message);
         setLoading(false);
         return;
       }
-
       toast.success(res.data.message || "Package updated successfully!");
       setLoading(false);
-      setError(false);
-
+      setFormError(false);
       // Redirect or reset the form if needed
       navigate(`/package/${params?.id}`);
+
     } catch (err) {
       console.error("Submit error:", err);
-      setLoading(false);
-      setError("Something went wrong. Try again!");
+       setIsUploading(false);
+       setLoading(false);
+      setFormError("Something went wrong. Try again!");
     }
   };
 
@@ -221,7 +223,7 @@ const AddPackages = () => {
                 >
                   <option>Select</option>
                   <option>Flight</option>
-                  <option>Train</option>
+                  <option>Car</option>
                   <option>Boat</option>
                   <option>Other</option>
                 </select>
@@ -322,22 +324,16 @@ const AddPackages = () => {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={isUploading || loading}
                 className="text-white p-3 rounded bg-black hover:opacity-95 disabled:opacity-70 mt-2"
               >
-                {loading
+                { isUploading
                   ? "Uploading..."
                   : loading
                   ? "Loading..."
-                  : "Create New Package"}
+                  : "Create New Package" 
+                }
               </button>
-              {/* <button
-               type="submit"
-               disabled={loading}
-               className="text-white p-3 rounded bg-black hover:opacity-95 disabled:opacity-70 mt-2"
->
-               {loading ? "Loading..." : "Create New Package"}
-              </button> */}
             </form>
           </div>
         </div>

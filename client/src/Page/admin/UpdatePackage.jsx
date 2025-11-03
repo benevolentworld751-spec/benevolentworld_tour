@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
+
 const UpdatePackage = () => {
   const params = useParams();
   const navigate = useNavigate();

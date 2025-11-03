@@ -1,5 +1,4 @@
-import React from 'react'
-import BookCarPage from '../Page/BookCarPage'
+import BookCarPage from '../Page/BookCarPage';
 
 const BookCar = () => {
   return (
@@ -9,4 +8,4 @@ const BookCar = () => {
   )
 }
 
-export default BookCar
+export default BookCar;

@@ -11,7 +11,7 @@ import Services from "./components/Services";
 import Contacts from "./components/Contacts";
 import AboutPage from "./Page/AboutPage"
 import Home from "./components/Home";
-import Book from "./components/Book";
+import Search from "./Page/Search";
 import BlogPage from "./Page/BlogPage";
 import Profile from "./Page/Profile";
 import SignupPage from "./Page/SignupPage";
@@ -80,7 +80,7 @@ function App() {
           <Route path="/book-flight" element={<FlightApplyPage/>} />
           <Route path="/visa-apply" element={<VisaApply />} />
           <Route path="/contact" element={<Contacts />} />
-          <Route path="/book-now" element={<Book />} />
+          <Route path="/book-now" element={<Search />} />
           <Route path="/car-package" element={<CarPackagePage />} />
           <Route path="/car-book" element={<BookCar />} />
           <Route path="*" element={<NotFound />} />

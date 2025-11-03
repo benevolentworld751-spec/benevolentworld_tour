@@ -18,7 +18,7 @@ const RatingCard = ({packageRatings }) => {
                   src={
                     defaultProfileImg
                   }
-                  //      `http://localhost:8000/images/${rating.userProfileImg}` 
+                  // `http://localhost:5000/images/${rating.userProfileImg}` 
                   alt={rating.username[0]}
                   className="border w-6 h-6 border-black rounded-[50%]"
                 />
