@@ -1,6 +1,6 @@
 
 import AboutPage from "../Page/AboutPage";
-import Services from "../components/Services";
+import NewsLetter from "../components/NewsLetter"
 import Footer from "../components/Footer";
 import BlogPage from "../Page/BlogPage";
 import Hero from "../components/Hero";
@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <>
      <Hero />
-     <Services />
      <PackagesPage />
      <BlogPage />
      <AboutPage />
+     <NewsLetter />
      <Footer />
     </>
  

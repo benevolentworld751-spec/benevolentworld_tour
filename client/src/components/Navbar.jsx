@@ -73,8 +73,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/service" className="text-gray-600 hover:text-blue-600">
-                Services
+              <Link to="/package" className="text-gray-600 hover:text-blue-600">
+                Packages
               </Link>
             </li>
             <li>
@@ -148,11 +148,11 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/service"
+                to="/package"
                 onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-600 text-lg"
               >
-                Services
+                Packages
               </Link>
             </li>
             <li>
