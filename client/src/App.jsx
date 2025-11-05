@@ -115,7 +115,7 @@ function App() {
           <Route path="/book-flight" element={<FlightApplyPage/>} />
           <Route path="/visa-apply" element={<VisaApply />} />
           <Route path="/contact" element={<Contacts />} />
-            <Route path="/book-now" element={<PrivateRoute />}>
+            <Route path="/booking" element={<PrivateRoute />}>
             <Route path=":packageId" element={<Booking />} />
           </Route>
           <Route path="/car-package" element={<CarPackagePage />} />

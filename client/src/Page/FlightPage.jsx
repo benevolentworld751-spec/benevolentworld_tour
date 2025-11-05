@@ -1,4 +1,3 @@
-import React from "react";
 import FlightCard from '../components/FlightCard'
 import Package from "./PackageLink";
 

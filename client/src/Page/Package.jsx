@@ -12,13 +12,15 @@ import MapModal from "../components/MapModal";
 import { Autoplay } from "swiper/modules";
 import { FaClock } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+
+
 const Package = () => {
   const [showMap, setShowMap] = useState(false);
   SwiperCore.use([Navigation]);
   const { currentUser } = useSelector((state) => state.user);
   const params = useParams();
   const navigate = useNavigate();
-  const [packageData, setPackageData] = useState({
+  const [packageData, setPackageData] = useState({ 
     packageName: "",
     packageDescription: "",
     packageDestination: "",
@@ -46,15 +48,17 @@ const Package = () => {
     username: currentUser?.username,
     userProfileImg: currentUser?.avatar,
   });
+
   const [packageRatings, setPackageRatings] = useState([]);
   const [ratingGiven, setRatingGiven] = useState(false);
-
+  
   const getPackageData = async () => {
     try {
       setLoading(true);
       const res = await fetch(`/api/package/get-package-data/${params?.id}`);
       const data = await res.json();
       if (data?.success) {
+        
         setPackageData({
           packageName: data?.packageData?.packageName,
           packageDescription: data?.packageData?.packageDescription,

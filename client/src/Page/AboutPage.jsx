@@ -1,5 +1,5 @@
 // About.jsx
-import LogoImg from '../assets/logo.jpeg'
+import LogoImg from '../assets/real_logo.jpeg'
 // Sample team data
 const teamMembers = [
   {

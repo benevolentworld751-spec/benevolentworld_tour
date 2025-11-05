@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import defaultProfileImg from "../assets/logo.jpeg"
+import defaultProfileImg from "../assets/logo.png"
 const RatingCard = ({packageRatings }) => {
   console.log(packageRatings);
   return (
@@ -16,7 +16,7 @@ const RatingCard = ({packageRatings }) => {
               <div className="flex gap-2 items-center">
                 <img
                   src={
-                    `http://localhost:8000/images/${rating.userProfileImg}`
+                    `http://localhost:5000/images/${rating.userProfileImg}`
                     
                   }
                   alt={rating.username[0]}
