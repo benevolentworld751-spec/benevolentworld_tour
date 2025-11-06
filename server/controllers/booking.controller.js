@@ -276,3 +276,11 @@ export const cancelBooking = async (req, res) => {
     console.log(error);
   }
 };
+
+import sendEmail from "../utils/sendEmail.js";
+
+await sendEmail({
+  to: user.email,
+  subject: "Booking Confirmation",
+  html: `<h2>Thank you for booking with Benevolent World!</h2>`,
+});
