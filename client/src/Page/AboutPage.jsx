@@ -1,26 +1,30 @@
 // About.jsx
-import LogoImg from '../assets/real_logo.jpeg'
-// Sample team data
+import LogoImg from "../assets/real_logo.jpeg";
+import SanaImg from "../assets/rukshar.jpeg";
+import RuksharImg from "../assets/rukshars.jpeg";
+import DanishImg from "../assets/danish.jpeg"; // replace with correct filename if needed
+
 const teamMembers = [
   {
     id: 1,
-    name: "Alice Johnson",
+    name: "Sana Siddiqui",
     role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=400&q=80",
+    image: SanaImg,
   },
   {
     id: 2,
-    name: "Rajesh Kumar",
-    role: "Travel Expert",
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80",
+    name: "Rukshar Khan",
+    role: "Marketing Executive",
+    image: RuksharImg,
   },
   {
     id: 3,
-    name: "Maria Gomez",
-    role: "Tour Coordinator",
-    image: "https://5.imimg.com/data5/SELLER/Default/2022/4/FP/TR/RR/52265291/portrait-photo-500x500.jpeg",
+    name: "Md Danish",
+    role: "IT Executive",
+    image: DanishImg,
   },
 ];
+
 
 const AboutPage = () => {
   return (

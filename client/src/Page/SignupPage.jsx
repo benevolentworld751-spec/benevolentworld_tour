@@ -1,8 +1,10 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import loginImage from "../assets/login.png";
 import { toast } from "react-toastify";
+
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -53,24 +55,23 @@ const SignupPage = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (formData.phone.length !== 11) {
-      toast.error("Phone number must be 11 digits long.");
-      return;
-    }
-    try {
-      const res = await axios.post(`/api/auth/signup`, formData);
+       e.preventDefault();
+       if (formData.phone.length !== 10) {
+         toast.error("Phone number must be 11 digits long.");
+       return;
+      }
+      try {
+         const res = await axios.post(`/api/auth/signup`, formData);
       if (res?.data?.success) {
         toast.success(res?.data?.message);
-        console.log("Singup complete")
         navigate("/login");
       } else {
         toast.error(res?.data?.message);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+     } catch (error) {
+       console.log(error);
+     }
+   };
 
   return (
     <div className=" w-full mx-auto h-screen flex justify-center items-center bg-[#FFF1DA]">
@@ -156,9 +157,7 @@ const SignupPage = () => {
                   placeholder="Your Phone"
                 />
               </div>
-              <button className="w-full bg-[#EB662B] text-white p-3 mt-4 rounded-md"
-               type = "submit"
-              >
+              <button className="w-full bg-[#EB662B] text-white p-3 mt-4 rounded-md">
                 Signup
               </button>
               <p className="my-4 text-center">
@@ -176,5 +175,6 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
+
 
 

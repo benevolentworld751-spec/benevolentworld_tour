@@ -94,7 +94,7 @@ const Navbar = () => {
           {/* ✈️ Book Now */}
           <Link
             to="/search"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-full transition-colors duration-300"
+            className="bg-blue-300 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-full transition-colors duration-300"
           >
             Book Now
           </Link>
@@ -118,7 +118,7 @@ const Navbar = () => {
               </Link>
             ) : (
               <Link
-                className="bg-orange-500 text-white px-8 py-2 rounded-full border border-gray-100"
+                className="bg-orange-300 text-white px-8 py-2 rounded-full border border-gray-100"
                 to="/login"
               >
                 Login

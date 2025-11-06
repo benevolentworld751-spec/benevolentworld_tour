@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
  
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
-    await mongoose.connect(`${process.env.MONGO_URL}`);
+    // await mongoose.connect(`${process.env.MONGO_URL}` || "mongodb+srv://benevolentworld751_db_user:222YW2OSNsqM13BI@cluster0.a4y791d.mongodb.net/benevolent_world");
+        await mongoose.connect(`${process.env.MONGO_URL}` || "mongodb://localhost:27017/benevolent");
     console.log("MongoDB Connected");
   } catch (error) {
     console.log("error to connect DB", error);
@@ -10,5 +11,5 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+
 
