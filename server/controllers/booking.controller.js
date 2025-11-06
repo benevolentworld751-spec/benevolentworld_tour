@@ -279,8 +279,29 @@ export const cancelBooking = async (req, res) => {
 
 import sendEmail from "../utils/sendEmail.js";
 
-await sendEmail({
-  to: user.email,
-  subject: "Booking Confirmation",
-  html: `<h2>Thank you for booking with Benevolent World!</h2>`,
-});
+export const createBooking = async (req, res) => {
+  try {
+    const { name, email, packageId, date } = req.body;
+
+    // Save booking in DB
+    const newBooking = await Booking.create({
+      name,
+      email,
+      packageId,
+      date,
+    });
+
+    // Send confirmation email
+    await sendEmail({
+      to: email, // ✅ not 'user.email'
+      subject: "Booking Confirmation",
+      html: `<h2>Thank you, ${name}!</h2>
+             <p>Your booking for package ID ${packageId} has been confirmed.</p>`,
+    });
+
+    res.status(201).json({ message: "Booking confirmed", booking: newBooking });
+  } catch (error) {
+    console.error("Booking error:", error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
