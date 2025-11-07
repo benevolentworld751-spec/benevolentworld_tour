@@ -332,7 +332,7 @@ const UpdatePackage = () => {
                   className="shadow-md rounded-md p-2 flex justify-between items-center"
                 >
                   <img
-                    src={`http://localhost:5000/images/${image}`}
+                    src={`https://benevolentworld-tour.onrender.com/images/${image}`}
                     alt=""
                     className="h-20 w-20 rounded"
                   />

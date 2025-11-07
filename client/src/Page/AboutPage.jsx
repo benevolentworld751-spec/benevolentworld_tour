@@ -1,6 +1,6 @@
 // About.jsx
 import LogoImg from "../assets/real_logo.jpeg";
-import SanaImg from "../assets/rukshar.jpeg";
+import SanaImg from "../assets/sanas.png";
 import RuksharImg from "../assets/rukshars.jpeg";
 import DanishImg from "../assets/danish.jpeg"; // replace with correct filename if needed
 
@@ -8,19 +8,16 @@ const teamMembers = [
   {
     id: 1,
     name: "Sana Siddiqui",
-    role: "Founder & CEO",
     image: SanaImg,
   },
   {
     id: 2,
     name: "Rukshar Khan",
-    role: "Marketing Executive",
     image: RuksharImg,
   },
   {
     id: 3,
     name: "Md Danish",
-    role: "IT Executive",
     image: DanishImg,
   },
 ];
@@ -101,7 +98,7 @@ const AboutPage = () => {
                   className="w-32 h-32 rounded-full object-cover"
                 />
                 <h3 className="mt-4 text-lg font-semibold text-gray-900">{member.name}</h3>
-                <p className="mt-1 text-gray-600">{member.role}</p>
+                {/* <p className="mt-1 text-gray-600">{member.role}</p> */}
               </div>
             ))}
           </div>

@@ -96,7 +96,7 @@ const Profile = () => {
                 <img
                   src={
                     currentUser.avatar
-                      ? `http://localhost:5000/images/${currentUser.avatar}`
+                      ? `https://benevolentworld-tour.onrender.com/images/${currentUser.avatar}`
                       : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTueIx2Jkawe7r91I50VfVAZLS60yx8RjiSfQ&s"
                   }
                   alt="Profile photo"

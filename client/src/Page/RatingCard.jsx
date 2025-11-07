@@ -16,7 +16,7 @@ const RatingCard = ({packageRatings }) => {
               <div className="flex gap-2 items-center">
                 <img
                   src={
-                    `http://localhost:5000/images/${rating.userProfileImg}`
+                    `https://benevolentworld-tour.onrender.com/images/${rating.userProfileImg}`
                     
                   }
                   alt={rating.username[0]}

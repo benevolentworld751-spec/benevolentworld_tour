@@ -101,7 +101,7 @@ const AddPackages = () => {
       setLoading(true);
       const res = await axios.post(
        // `http://localhost:5000/api/package/update-package/${params?.id}`, // Update API endpoint
-       "http://localhost:5000/api/package/create-package",
+       "https://benevolentworld-tour.onrender.com/api/package/create-package",
         data,
         {
           headers: {

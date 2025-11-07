@@ -114,7 +114,7 @@ const { currentUser, loading } = useSelector((state) => state.user);
                   src={
               formData.avatar?.startsWith("http")
               ? formData.avatar
-                  : `http://localhost:5000/images/${formData.avatar}`
+                  : `https://benevolentworld-tour.onrender.com/images/${formData.avatar}`
                      }
 
                   alt="Profile photo"

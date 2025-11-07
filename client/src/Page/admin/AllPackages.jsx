@@ -155,7 +155,7 @@ const AllPackages = () => {
               >
                 <Link to={`/package/${pack._id}`}>
                   <img
-                    src={`http://localhost:5000/images/${pack.packageImages[0]}`}
+                    src={`https://benevolentworld-tour.onrender.com/images/${pack.packageImages[0]}`}
                     alt="image"
                     className="w-20 h-20 rounded"
                   />

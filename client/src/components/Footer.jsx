@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  FaLinkedin,
   FaFacebook,
   FaInstagram,
   FaPinterest,
@@ -90,7 +91,15 @@ const Footer = () => {
             <FaFacebook />
           </a>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.linkedin.com/in/benevolent-world-travel-996a34395/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition-transform transform hover:scale-110"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://www.instagram.com/su.pport874/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-500 transition-transform transform hover:scale-110"
@@ -98,7 +107,7 @@ const Footer = () => {
             <FaInstagram />
           </a>
           <a
-            href="https://www.twitter.com/"
+            href="https://www.facebook.com/profile.php?id=61583518707287"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-sky-500 transition-transform transform hover:scale-110"
@@ -106,7 +115,7 @@ const Footer = () => {
             <FaTwitter />
           </a>
           <a
-            href="https://www.pinterest.com/"
+            href="https://in.pinterest.com/benevolentworld/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-500 transition-transform transform hover:scale-110"
@@ -114,7 +123,7 @@ const Footer = () => {
             <FaPinterest />
           </a>
           <a
-            href="https://www.youtube.com/"
+            href="https://www.youtube.com/@BenevolentWorld-t4f"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-600 transition-transform transform hover:scale-110"

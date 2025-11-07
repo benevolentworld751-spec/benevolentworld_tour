@@ -251,7 +251,7 @@ const Package = () => {
               {packageData.packageImages.map((img, i) => (
                 <SwiperSlide key={i}>
                   <img
-                    src={`http://localhost:5000/images/${img}`}
+                    src={`https://benevolentworld-tour.onrender.com/images/${img}`}
                     alt={`slide-${i}`}
                     className="w-full h-full object-cover rounded-xl" // rounded-xl for smooth rounded corners
                   />
