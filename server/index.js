@@ -20,7 +20,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://benevolentworld-tour.vercel.app/", // ✅ Your React (Vite) frontend URL
+    origin: "https://benevolentworld-tour.vercel.app", // ✅ Your React (Vite) frontend URL
     credentials: true,
   })
 );
