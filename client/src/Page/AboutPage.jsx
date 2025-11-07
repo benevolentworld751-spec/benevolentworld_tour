@@ -1,6 +1,6 @@
 // About.jsx
 import LogoImg from "../assets/real_logo.jpeg";
-import SanaImg from "../assets/sanas.png";
+import SanaImg from "../assets/sana.png";
 import RuksharImg from "../assets/rukshars.jpeg";
 import DanishImg from "../assets/danish.jpeg"; // replace with correct filename if needed
 
