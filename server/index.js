@@ -18,12 +18,14 @@ const __dirname = path.resolve();
 
 connectDB();
 
-app.use(
-  cors({
-    origin: "https://benevolentworld-tour.vercel.app", // ✅ Your React (Vite) frontend URL
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: [
+    "https://benevolentworld-tour.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true
+}));
 
 
 app.use(express.json());
