@@ -61,7 +61,7 @@ const SignupPage = () => {
        return;
       }
       try {
-         const res = await axios.post("https://benevolentworld-backend.onrender.com/api/auth/signup", formData);
+         const res = await axios.post("https://benevolentworld-tour.onrender.com/api/auth/signup", formData);
       if (res?.data?.success) {
         toast.success(res?.data?.message);
         navigate("/login");
