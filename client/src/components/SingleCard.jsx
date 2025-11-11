@@ -50,7 +50,7 @@ const SingleCard = ({ packageData }) => {
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <img
-          src={`http://localhost:5000/images/${packageData.packageImages[0]}`}
+          src={`https://benevolentworld-tour.onrender.com/images/${packageData.packageImages[0]}`}
           alt=""
           className="w-full h-[140px] object-cover "
         />
